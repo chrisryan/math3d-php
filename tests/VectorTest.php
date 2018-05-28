@@ -274,4 +274,23 @@ final class VectorTest extends TestCase {
             'Zero' => [[0, 0, 0], 0.0],
         ];
     }
+
+    /**
+     * @test
+     * @dataProvider dotProvider
+     * @covers ::dot
+     */
+    public function dot($valuesA, $valuesB, $expected) {
+        $vA = new Vector($valuesA);
+        $vB = new Vector($valuesB);
+        $this->assertEquals($expected, $vA->dot($vB), '', 0.000001);
+    }
+
+    public function dotProvider() {
+        return [
+            [[1, 2, 3], [4, -5, 6], 12],
+            [[-4, -9, 0], [-1, 2, 0], -14],
+            [[6, -1, 3], [4, 18, -2], 0],
+        ];
+    }
 }

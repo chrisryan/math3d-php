@@ -108,6 +108,33 @@ final class Vector {
         return sqrt($sqTotal);
     }
 
+    public function dot($v) {
+        $this->assertValid($v);
+
+        if (is_object($v)) {
+            $v = $v->v();
+        }
+
+        $r = 0;
+
+        $n = min(count($this->_v), count($v));
+        for ($i = 0; $i < $n; $i++) {
+            $a = 0;
+            if (isset($this->_v[$i])) {
+                $a = $this->_v[$i];
+            }
+
+            $b = 0;
+            if (isset($v[$i])) {
+                $b = $v[$i];
+            }
+
+            $r += $a * $b;
+        }
+
+        return $r;
+    }
+
     /**
      * Helper method for verifying input is either a valid array or the expected object.
      *
