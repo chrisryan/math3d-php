@@ -2,13 +2,15 @@
 
 namespace chrisryan\Math3d;
 
+use PHPUnit\Framework\TestCase;
+
 /**
  * Test the Vector class
  *
  * @coversDefaultClass \chrisryan\Math3d\Vector
  * @covers ::<private>
  */
-final class VectorTest extends \PHPUnit_Framework_TestCase {
+final class VectorTest extends TestCase {
     /**
      * Provider for testing that functions do not accept invalid arguments.
      * Used by several tests.
